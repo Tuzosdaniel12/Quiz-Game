@@ -67,6 +67,7 @@ by making font to black and styling my button for each anwsers*/
 #question-block{
     display: none;
 }
+
 #question{
     font-size: 1.5em;
     color: black;
@@ -75,12 +76,17 @@ by making font to black and styling my button for each anwsers*/
     text-align: left;
 }
 #answers li{
+    width: fit-content;
+}
+#answers li button{
     background-color: var(--mainColor);
     width: fit-content;
+    height: var(--hundredPercent);
     padding: .3em .3em;
     border-radius: 1em;
     margin-bottom: 1em;
 }
+
 
 /*targets form so it can sit in middle of section*/
 #scoreInfo{
@@ -88,6 +94,7 @@ by making font to black and styling my button for each anwsers*/
     display: none;
 }
 form{
+    width: fit-content;
     margin: auto;
 }
 
