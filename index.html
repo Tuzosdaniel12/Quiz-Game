@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 <body>
+<!--highscore and time -->  
 <div class = "style-highscore-time">
     <a href="highscores.html">View Highscores</a>
     <p id="time">
@@ -15,14 +16,38 @@
         <span id="time-left">2:00</span>
     </p>
 </div>    
-
-<section>
+<!--intro block -->   
+<section id="intro-block">
     <h1 id = heading>Coding Quiz</h1>
 
     <p id =intro>Welcome to The Quiz Game. test your self and your friends, 
         How much terms you know about javascript. Track you high scores.Try to finish before the time ends.Any wrong answers takes 20 sec penalty. Have fun!! </p>
 
     <button id ="start-game">Start Quiz</button>
+</section>
+
+<!--question-block --> 
+<section id = "question-block">
+    <h1 id = "question">Coding Quiz</h1>
+    <ul id = "answers">
+        <li data-index-number = "0" >d</li>
+        <li data-index-number = "1">d</li>
+        <li data-index-number = "2">d</li>
+        <li data-index-number = "3">d</li>
+    </ul>
+    <p id = "correctOrWrongAnswer"></p>
+</section>
+
+<!--score info --> 
+<section id = "scoreInfo">
+    <h1 id ="alldone">All Done</h1>
+    <p id = "score">Your Score:</p>
+    <form >
+        <label>Enter Your Intials:</label>
+        <input type ="text" id = "intials" >
+        <input type = "submit" id = "intialsButton">
+    </form>
+
 </section>
     
 <script src="assets/script/script.js"></script>    

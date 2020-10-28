@@ -1,8 +1,11 @@
 var buttonStart = document.getElementById("start-game");
 var timeLeft = document.getElementById("time-left");
+var questionSection = document.getElementById("question-block");
+var introBlock = document.getElementById("intro-block");
 
 var totalSeconds = 120;
 var secondPerMinute = 59;
+var currentQuestion = 0;
 
 
 // GIVEN I am taking a code quiz
@@ -14,8 +17,10 @@ var secondPerMinute = 59;
 function startGame(e){
     e.preventDefault();
     clearInterval(interval);
-    var interval = setInterval(Timer, 1000); 
-    location.href = "questions.html";
+    var interval = setInterval(Timer, 1000);
+    introBlock.style.display = "none";
+    questionSection.style.display = "block"; 
+    
 }
 
 function Timer(){
@@ -24,12 +29,14 @@ function Timer(){
     var totalMinutes = Math.floor(secondsLeft/ 60);
     //to display minutes and seconds I need to acces inner text on time-left
     //console.log(totalMinutes, secondsLeft);
+
     if(secondPerMinute  < 0){
         secondPerMinute = 59;
     }
     else if(totalMinutes == 2){
         totalMinutes = 1;
     }
+
     timeLeft.textContent = totalMinutes + ":" + secondPerMinute;
     secondPerMinute --;
 

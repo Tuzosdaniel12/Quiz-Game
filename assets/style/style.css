@@ -41,7 +41,20 @@ section h1{
 section p{
     text-align: center;
     margin-bottom: 1em;
+
 }
+
+section ul{
+   
+
+    margin-bottom: 1em;
+}
+section #correctOrWrongAnswer{
+    border-top: solid;
+    border-color: grey;
+    display: none;
+}
+
 section button{
     margin: auto;
     background-color: var(--mainColor);
@@ -51,6 +64,9 @@ section button{
 }
 /*target section with id question to change the main style
 by making font to black and styling my button for each anwsers*/
+#question-block{
+    display: none;
+}
 #question{
     font-size: 1.5em;
     color: black;
@@ -67,6 +83,10 @@ by making font to black and styling my button for each anwsers*/
 }
 
 /*targets form so it can sit in middle of section*/
+#scoreInfo{
+    /*only display when java need you*/
+    display: none;
+}
 form{
     margin: auto;
 }
