@@ -61,6 +61,7 @@ section button{
     width: fit-content;
     border-radius: 1em;
     justify-self: center;
+    font-size: 1.5em;
 }
 /*target section with id question to change the main style
 by making font to black and styling my button for each anwsers*/
@@ -85,6 +86,7 @@ by making font to black and styling my button for each anwsers*/
     padding: .3em .3em;
     border-radius: 1em;
     margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 

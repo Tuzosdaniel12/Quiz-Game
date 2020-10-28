@@ -80,7 +80,7 @@ function startGame(e){
     interval = setInterval(Timer, 1000);
     introBlock.style.display = "none";
     questionSection.style.display = "block"; 
-    createButtons();
+    displayQuestion();
     
 }
 
@@ -111,8 +111,9 @@ function displayTime(totalMinutes, secondsPerMinute){
 
     
 }
-//creates four children for each answer in every question
-function createButtons(){
+//creates four children for each answer in every question and display the questions
+function displayQuestion(){
+    
     questionEl.textContent = questions[currentQuestion].q;
     for(i =0; i < questions[currentQuestion].a.length; i++){
         var li = document.createElement("li")
@@ -141,32 +142,39 @@ function answersButtons(e){
     }
 }
 
-
+//check answer to check right answer al;so displayus if correct
 function checkAnswer(index){
     if(index === questions[currentQuestion].rightAnswer){
+        correctOrWrongEl.style.display = "block";
         correctOrWrongAnswer.textContent = "Corret";
-        score++;
-        
+        score++; 
     }
 
     else{
+        correctOrWrongAnswer.textContent = "Wrong";
         totalSeconds = totalSeconds - 20;
         console.log(totalSeconds);
         if (totalSeconds <= 0){
             finalScore();
         }
     }
+    
+    
     console.log(score);
 }
+
+//removews children and call display next question
 function removeChildrenBeforeNextQuestion(){
     while(answers.firstChild){
         answers.removeChild(answers.firstChild);
     }
     currentQuestion++;
-    createButtons();
+    displayQuestion();
 }
 
+//clears interval and send to all done block
 function finalScore(){
+    var secondsLeft = totalSeconds;
     totalSeconds = 120;
     clearInterval(interval);
     questionSection.style.display = "none";
