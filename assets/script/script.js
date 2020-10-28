@@ -6,12 +6,19 @@ var answers = document.getElementById("answers");
 var questionEl = document.getElementById("question");
 var correctOrWrongEl = document.getElementById("correctOrWrongAnswer");
 var scoreInfo = document.getElementById("scoreInfo");
+var intialButton = document.querySelector("#intialsButton");
+var intialsEl = document.querySelector("#intials");
+var totalScore = document.querySelector("#score");
+var highscoresSection = document.querySelector("#highscoresSection");
+var highscoresList = document.querySelector("#highscores");
+var goBackButton = document.querySelector("#goBack");
+var clearButton = document.getElementById("clear");
 
 var interval;
-var score = 0;
+var score;
 var totalSeconds = 120;
 var currentQuestion = 0;
-var answerList = [];
+var peopleHighScore = [{int:""},{s:0}];
 var questions = [
         questionOne = {
             q : "Whats the most common way to create a variable?",
@@ -75,6 +82,7 @@ var questions = [
 //this event has to fire the time interverval and send me to the question
 // THEN a timer starts and I am presented with a question(go to display quiestion)
 function startGame(e){
+    score = 0;
     e.preventDefault();
     clearInterval(interval);
     interval = setInterval(Timer, 1000);
@@ -86,8 +94,13 @@ function startGame(e){
 
 //sets time and calls display time to display time
 function Timer(){ 
+    //check every time to see if time has ran out
+    if (totalSeconds <= 0){
+        finalScore();
+    }
     totalSeconds--;
     var totalMinutes = Math.floor(totalSeconds/ 60);
+    minutesLeft = totalMinutes;
     console.log(totalMinutes);
     var secondsPerMinute = totalSeconds % 60;
     displayTime(totalMinutes, secondsPerMinute);
@@ -108,6 +121,7 @@ function displayTime(totalMinutes, secondsPerMinute){
     else{
         timeLeft.textContent = totalMinutes + ":" + secondsPerMinute;
     }
+    secondsLeft = secondsPerMinute;
 
     
 }
@@ -136,9 +150,9 @@ function answersButtons(e){
         var index = parseInt(e.target.parentElement.dataIndex)
         // console.log(index);
         checkAnswer(index);
-        removeChildrenBeforeNextQuestion();
-        
-       
+        removeChildren(answers);
+        currentQuestion++;
+        displayQuestion();
     }
 }
 
@@ -163,26 +177,56 @@ function checkAnswer(index){
     console.log(score);
 }
 
-//removews children and call display next question
-function removeChildrenBeforeNextQuestion(){
-    while(answers.firstChild){
-        answers.removeChild(answers.firstChild);
+//removes children from parent element 
+function removeChildren(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild);
     }
-    currentQuestion++;
-    displayQuestion();
 }
 
 //clears interval and send to all done block
 function finalScore(){
-    var secondsLeft = totalSeconds;
     totalSeconds = 120;
     clearInterval(interval);
+    totalScore.textContent = "Your Score: " + score;
     questionSection.style.display = "none";
     scoreInfo.style.display = "block";
 }
+//store the highscore on JSON
+function submitScore(e){
+    e.preventDefault();
+    var intials = intialsEl.value;
+    localStorage.setItem("intials", intials);
+    localStorage.setItem("score", score);
+    createScoreListitem();
+    scoreInfo.style.display = "none";
+    highscoresSection.style.display = "block";
+    
+}
+function clear(e){
+    e.preventDefault();
+    removeChildren(highscoresList);
+}
+function goBack(e){
+    e.preventDefault
+    location.href = "index.html";
+}
 
-
+function createScoreListitem(){
+    intials = localStorage.getItem("intials");
+    score = localStorage.getItem("score");
+    
+    for(var i = -1; i < peopleHighScore.length; i++){
+    var li = document.createElement("li");
+    peopleHighScore.push({int: intials, s: score});
+    li.innerHTML =  peopleHighScore[i].int + " : " + peopleHighScore[i].s;   
+    highscoresList.append(li);
+}
+}
 
 //event LIStener 
 buttonStart.addEventListener("click",startGame);
 answers.addEventListener("click", answersButtons);
+intialButton.addEventListener("click", submitScore);
+clearButton.addEventListener("click", clear);
+goBackButton.addEventListener("click",goBack);

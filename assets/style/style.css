@@ -62,6 +62,10 @@ section button{
     border-radius: 1em;
     justify-self: center;
     font-size: 1.5em;
+    opacity: .8;
+}
+section button:hover{
+    opacity: 1;
 }
 /*target section with id question to change the main style
 by making font to black and styling my button for each anwsers*/
@@ -100,7 +104,9 @@ form{
     margin: auto;
 }
 
-
+#highscoresSection{
+    display: none;
+}
 #highScoreEl{
     text-align: left;
 }
