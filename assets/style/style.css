@@ -11,6 +11,7 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
+/*style highscore link and time left om top of pagee*/
 .style-highscore-time{
     display: flex;
     justify-content: space-between;
@@ -21,7 +22,7 @@ body{
 .style-highscore-time a{
     color:var(--mainColor) ;
 }
-
+/*main page want to center H1 question and button*/
 section{
     margin: auto;
     width: 50%;
@@ -44,23 +45,37 @@ section p{
 section button{
     margin: auto;
     background-color: var(--mainColor);
-    width: 30%;
+    width: fit-content;
     border-radius: 1em;
     justify-self: center;
 }
-
+/*target section with id question to change the main style
+by making font to black and styling my button for each anwsers*/
 #question{
-    font-size: 2em;
+    font-size: 1.5em;
     color: black;
     margin-bottom: 1em;
-    font-weight: bolder;
+    font-weight: bold;
     text-align: left;
 }
 #answers li{
     background-color: var(--mainColor);
-    width: 20%;
-    padding: .5em .5em;
+    width: fit-content;
+    padding: .3em .3em;
     border-radius: 1em;
     margin-bottom: 1em;
 }
 
+/*targets form so it can sit in middle of section*/
+form{
+    margin: auto;
+}
+
+
+#highScoreEl{
+    text-align: left;
+}
+div{
+    width: fit-content;
+    
+}
