@@ -7,10 +7,10 @@ var questionEl = document.getElementById("question");
 var correctOrWrongEl = document.getElementById("correctOrWrongAnswer");
 
 
-
-var totalScore = document.querySelector("#score");
-
-
+var scoreInfo = document.getElementById("scoreInfo");
+var submitBtn = document.getElementById("intials-button");
+var intialsEl = document.getElementById("intials");
+var totalScore = document.getElementById("score");
 
 
 var interval;
@@ -193,10 +193,28 @@ function playAgainClearTime(){
     clearInterval(interval);
 }
 
+function submitScore(e){
+    e.preventDefault();
+    location.href = "highscores.html";
+    scoreInfo.style.display = "none";
+    var intials = intialsEl.value;
+    var playerList = [];
+    console.log(JSON.parse(localStorage.getItem("array")));
+    if(JSON.parse(localStorage.getItem("array")) === undefined){
+        playerList =[{name : intials, score: score, time: timeLeft.textContent }];
+    }
+    else{
+        playerList = JSON.parse(localStorage.getItem("array"));
+    }
 
+    playerList.push({name : intials, score: score, time: timeLeft.textContent});
+    localStorage.setItem("array", JSON.stringify(playerList));
+    //console.log(playerList);
+    createScoreListitem();
+    
+}
 
-//event LIStener 
 buttonStart.addEventListener("click",startGame);
 answers.addEventListener("click", answersButtons);
-
+submitBtn.addEventListener("click", submitScore);
 
