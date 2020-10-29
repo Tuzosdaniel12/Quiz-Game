@@ -1,7 +1,6 @@
 :root{
     --hundredPercent: 100%;
     --mainColor : #dd7418;
-
 }
 
 body{
@@ -22,99 +21,112 @@ body{
 #style-highscore-time a{
     color:var(--mainColor) ;
 }
-/*main page want to center H1 question and button*/
-section{
-    margin: auto;
+/*intro block styling*/
+#intro-block{
     width: 50%;
-    display: flex;
-    flex-direction: column;
-}
-section h1{
+    margin: auto;
     text-align: center;
+}
+#intro-block h1{
+    font-size: 3em;
+    margin-bottom: .5em;
+    color: var(--mainColor);
+}
+#intro-block p{
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+#intro-block button{
+    background-color: var(--mainColor);
+    border-radius: 1em;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/*----question-block-----*/
+#question-block{
+    width: 50%;
+    margin: auto;
+    display: none;
+}
+#question-block h1{
+    font-size: 1.8em;
+    margin-bottom: .5em;
+    color: black;
+    font-weight: bold;
+}
+#question-block button{
+    background-color: var(--mainColor);
+    border-radius: 1em;
+    padding: .5em;
+    margin-bottom: .5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+/*----score info-----*/
+#scoreInfo{
+    display: none;
+    width: 50%;
+    margin: auto;
+    
+}
+#scoreInfo h1{
     font-size: 2em;
+    margin-bottom: .5em;
     color:var(--mainColor);
-    margin-bottom: 1em;
+    font-weight: bold;
+}
+#scoreInfo p{
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+#scoreInfo form{
+    width: 100%;
+    font-size: 1.5em;
+}
+#scoreInfo form #intials{
+    background-color: lightgray;
+}
+#scoreInfo form #intials-button{
+    background-color:var(--mainColor);
+    border-radius: 1em;
+    padding: .3em;
+    margin-bottom: .5em;
+    font-size: .8em;
     font-weight: bold;
     
 }
 
-section p{
-    text-align: center;
-    margin-bottom: 1em;
-
-}
-
-section ul{
-   
-
-    margin-bottom: 1em;
-}
-section #correctOrWrongAnswer{
-    border-top: solid;
-    border-color: grey;
-    display: none;
-}
-
-section button {
+/*---highsocreSection----*/
+#high-scores-section{
+    width: 50%;
     margin: auto;
-    background-color: var(--mainColor);
-    width: fit-content;
-    border-radius: 1em;
-    justify-self: center;
+}
+
+#high-scores-section h1{
+    font-size: 2em;
+    margin-bottom: .5em;
+    color:var(--mainColor);
+    font-weight: bold;
+}
+#high-scores-section ul li{
     font-size: 1.5em;
+    margin-bottom: .5em;
+}
+#high-scores-section button {
+    background-color: var(--mainColor);
+    border-radius: 1em;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+button{
     opacity: .8;
 }
-section button #start-game{
-    margin: auto;
-}
-section button:hover{
+button:hover{
     opacity: 1;
 }
-/*target section with id question to change the main style
-by making font to black and styling my button for each anwsers*/
-#question-block{
-    display: none;
-}
 
-#question{
-    font-size: 1.5em;
-    color: black;
-    margin-bottom: 1em;
-    font-weight: bold;
-    text-align: left;
-}
-#answers li{
-    width: fit-content;
-}
-#answers li button{
-    background-color: var(--mainColor);
-    width: fit-content;
-    height: var(--hundredPercent);
-    padding: .3em .3em;
-    border-radius: 1em;
-    margin-bottom: 1em;
-    font-size: 1.5em;
-}
-
-
-/*targets form so it can sit in middle of section*/
-#scoreInfo{
-    /*only display when java need you*/
-    display: none;
-}
-form{
-    width: fit-content;
-    margin: auto;
-}
-
-#highscoresSection{
-    display: none;
-}
-#highScoreEl{
-    text-align: left;
-}
-div{
-    width: fit-content;
-    
-}
 

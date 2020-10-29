@@ -1,21 +1,18 @@
 var buttonStart = document.getElementById("start-game");
 var timeLeft = document.getElementById("time-left");
-var questionSection = document.getElementById("question-block");
 var introBlock = document.getElementById("intro-block");
+var questionSection = document.getElementById("question-block");
 var answers = document.getElementById("answers");
 var questionEl = document.getElementById("question");
 var correctOrWrongEl = document.getElementById("correctOrWrongAnswer");
-var scoreInfo = document.getElementById("scoreInfo");
-var intialButton = document.querySelector("#intialsButton");
-var intialsEl = document.querySelector("#intials");
-var totalScore = document.querySelector("#score");
-var highscoresSection = document.getElementById("highscoresSection");
-var highscoresList = document.getElementById("highscores");
-var goBackButton = document.querySelector("#goBack");
-var clearButton = document.getElementById("clear");
-var highscoreLink = document.getElementById("highscoreshtml");
 
-var playerList = [];
+
+
+var totalScore = document.querySelector("#score");
+
+
+
+
 var interval;
 var score;
 var totalSeconds = 120;
@@ -89,8 +86,7 @@ function startGame(e){
     interval = setInterval(Timer, 1000);
     introBlock.style.display = "none";
     questionSection.style.display = "block"; 
-    displayQuestion();
-    
+    displayQuestion(); 
 }
 
 //sets time and calls display time to display time
@@ -122,10 +118,10 @@ function displayTime(totalMinutes, secondsPerMinute){
     else{
         timeLeft.textContent = totalMinutes + ":" + secondsPerMinute;
     }
-    secondsLeft = secondsPerMinute;
-
-    
+    secondsLeft = secondsPerMinute; 
 }
+
+
 //creates four children for each answer in every question and display the questions
 function displayQuestion(){
     
@@ -139,14 +135,15 @@ function displayQuestion(){
     }
      
 }
+
 //when you click each button is going to call check answer function to check answers
 function answersButtons(e){
     if(e.target.matches("button")){
+        e.preventDefault(); 
         //everytime a button is clicked check if they reached the end of questions
         if (currentQuestion === questions.length-1){
             finalScore();
         }
-        e.preventDefault(); 
         //console.log(e.target.parentElement.dataIndex);
         var index = parseInt(e.target.parentElement.dataIndex)
         // console.log(index);
@@ -164,7 +161,6 @@ function checkAnswer(index){
         correctOrWrongAnswer.textContent = "Corret";
         score++; 
     }
-
     else{
         correctOrWrongAnswer.textContent = "Wrong";
         totalSeconds = totalSeconds - 20;
@@ -172,10 +168,8 @@ function checkAnswer(index){
         if (totalSeconds <= 0){
             finalScore();
         }
-    }
-    
-    
-    console.log(score);
+    } 
+    //console.log(score);
 }
 
 //removes children from parent element 
@@ -192,64 +186,17 @@ function finalScore(){
     questionSection.style.display = "none";
     scoreInfo.style.display = "block";
 }
-//store the highscore on JSON
-function submitScore(e){
-    e.preventDefault();
-    var intials = intialsEl.value;
-    playerList.push({name : intials, score: score});
-    localStorage.setItem("array", JSON.stringify(playerList));
-    //console.log(playerList);
-    createScoreListitem();
-    scoreInfo.style.display = "none";
-    highscoresSection.style.display = "block";
-    
-}
-function clear(e){
-    e.preventDefault();
-    removeChildren(highscoresList);
-    playerList = [];
-}
-function goBack(e){
-    e.preventDefault();
-    playAgainClearTime();
-    removeChildren(answers);
-    scoreInfo.style.display = "none";
-    highscoresSection.style.display = "none";
-    questionSection.style.display = "none"; 
-    introBlock.style.display = "block";
-    
-
-}
-
-function createScoreListitem(){
-    var storedArray = JSON.parse(localStorage.getItem("array"));
-    console.log(storedArray);
-    removeChildren(highscoresList);
-    for(i = 0; i < storedArray.length; i++){
-        var li = document.createElement("li");
-        li.innerHTML =  storedArray[i].name + " : " + storedArray[i].score;
-        highscoresList.append(li);
-    }
-}
-
-function goToHighSores(e){
-    e.preventDefault();
-    scoreInfo.style.display = "none";
-    introBlock.style.display = "none";
-    questionSection.style.display = "none"; 
-    highscoresSection.style.display = "block";
-    
-}
 
 function playAgainClearTime(){
     currentQuestion = 0;
     totalSeconds = 120;
     clearInterval(interval);
 }
+
+
+
 //event LIStener 
 buttonStart.addEventListener("click",startGame);
 answers.addEventListener("click", answersButtons);
-intialButton.addEventListener("click", submitScore);
-clearButton.addEventListener("click", clear);
-goBackButton.addEventListener("click",goBack);
-highscoreLink.addEventListener("click", goToHighSores)
+
+
