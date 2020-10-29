@@ -41,4 +41,4 @@ For this projext I started with the Htlm lay out and created all the neccesary
 ![code]()
 
 ##Links
-
+https://tuzosdaniel12.github.io/Quiz-Game/
