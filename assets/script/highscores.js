@@ -31,4 +31,4 @@ function goBack(e){
 clearButton.addEventListener("click", clearFunction);
 backButtonEl.addEventListener("click", goBack);
 
-
+createScoreListitem();

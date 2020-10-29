@@ -210,11 +210,11 @@ function submitScore(e){
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
     localStorage.setItem("array", JSON.stringify(playerList));
     //console.log(playerList);
-    createScoreListitem();
-    
 }
 
 buttonStart.addEventListener("click",startGame);
 answers.addEventListener("click", answersButtons);
 submitBtn.addEventListener("click", submitScore);
+intialsEl.addEventListener("submit",submitScore);
+
 
