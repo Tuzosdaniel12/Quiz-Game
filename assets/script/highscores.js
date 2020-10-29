@@ -4,13 +4,12 @@ var listHighscores = document.getElementById("player-list");
 
 function createScoreListitem(){
     var storedArray = JSON.parse(localStorage.getItem("array"));
-    console.log(storedArray);
+    //console.log(storedArray);
     //removeChildren(highscoresList);
+    
     for(i = 0; i < storedArray.length; i++){
         var li = document.createElement("li");
         li.innerHTML =  "Initials: "+ storedArray[i].name + "  Score: " + storedArray[i].score + " Time: " + storedArray[i].time;
-        console.log(li.innerHTML);
-        console.log(listHighscores);
         listHighscores.append(li);
     }
 }
@@ -27,6 +26,7 @@ function goBack(e){
    playAgainClearTime();
    location.href = "index.html";
 }
+
 
 clearButton.addEventListener("click", clearFunction);
 backButtonEl.addEventListener("click", goBack);
