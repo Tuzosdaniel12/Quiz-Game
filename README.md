@@ -48,7 +48,7 @@ THEN I can save my initials and score
 
 
 ## Samples-of-Code
-![CODE](https://github.com/Tuzosdaniel12/PasswordGenerator/blob/main/Assets/images/code-01.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-01.png)
 
 ## Links
 https://tuzosdaniel12.github.io/Quiz-Game/
