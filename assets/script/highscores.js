@@ -3,10 +3,9 @@ var clearButton = document.getElementById("clear");
 var listHighscores = document.getElementById("player-list");
 
 function createScoreListitem(){
-    var storedArray = JSON.parse(localStorage.getItem("array"));
+    var storedArray = JSON.parse(window.localStorage.getItem("array"));
     //console.log(storedArray);
     //removeChildren(highscoresList);
-    
     for(i = 0; i < storedArray.length; i++){
         var li = document.createElement("li");
         li.innerHTML =  "Initials: "+ storedArray[i].name + "  Score: " + storedArray[i].score + " Time: " + storedArray[i].time;
@@ -16,7 +15,7 @@ function createScoreListitem(){
 
 function clearFunction(e){
     e.preventDefault();
-    localStorage.setItem("array", "[]");
+    window.localStorage.setItem("array", "[]");
     //console.log(playerList = JSON.parse(localStorage.getItem("array", "[]")));
     removeChildren(listHighscores);
 }

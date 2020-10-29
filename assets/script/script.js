@@ -147,20 +147,20 @@ function playAgainClearTime(){
 //get and sets player info so it can be used as highscores list
 function submitScore(e){
     e.preventDefault();
-    location.href = "highscores.html";
+    window.location.href = "highscores.html";
     scoreInfo.style.display = "none";
     var intials = intialsEl.value;
     var playerList = [];
-    console.log(JSON.parse(localStorage.getItem("array")));
-    if(JSON.parse(localStorage.getItem("array")) === undefined){
+    //console.log(JSON.parse(localStorage.getItem("array")));
+    if(JSON.parse(window.localStorage.getItem("array")) === undefined){
         playerList =[{name : intials, score: score, time: timeLeft.textContent }];
     }
     else{
-        playerList = JSON.parse(localStorage.getItem("array"));
+        playerList = JSON.parse(window.localStorage.getItem("array"));
     }
 
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
-    localStorage.setItem("array", JSON.stringify(playerList));
+    window.localStorage.setItem("array", JSON.stringify(playerList));
     //console.log(playerList);
 }
 
