@@ -3,7 +3,7 @@
 * [User Story](#User-Story)
 * [Acceptance Criteria](#Acceptance-Criteria)
 * [Process](#Process)
-* [Sample of Code](#Sample-of-Code)
+* [Work Examples](#Work-Examples)
 * [Links](#Links)
 
 ## Task
@@ -47,8 +47,15 @@ THEN I can save my initials and score
 * there is other funtion as well, to clear time and set variables to starting values, to jump around start to end, and function to clear data from local storage.  
 
 
-## Samples-of-Code
+## Work-Examples
 ![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-01.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-02.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-03.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-04.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-05.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-06.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-07.png)
+![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-08.png)
 
 ## Links
 https://tuzosdaniel12.github.io/Quiz-Game/
