@@ -42,3 +42,4 @@ For this projext I started with the Htlm lay out and created all the neccesary
 
 ##Links
 https://tuzosdaniel12.github.io/Quiz-Game/
+https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/README.md
