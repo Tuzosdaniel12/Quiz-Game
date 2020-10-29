@@ -12,14 +12,14 @@ body{
 
 }
 /*style highscore link and time left om top of pagee*/
-.style-highscore-time{
+#style-highscore-time{
     display: flex;
     justify-content: space-between;
     width: var(--hundredPercent);
     font-size: 1em;
     margin-bottom: 1em;
 }
-.style-highscore-time a{
+#style-highscore-time a{
     color:var(--mainColor) ;
 }
 /*main page want to center H1 question and button*/
@@ -117,3 +117,4 @@ div{
     width: fit-content;
     
 }
+

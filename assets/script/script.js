@@ -215,13 +215,16 @@ function goBack(e){
     removeChildren(answers);
     scoreInfo.style.display = "none";
     highscoresSection.style.display = "none";
-    introBlock.style.display = "block";
     questionSection.style.display = "none"; 
+    introBlock.style.display = "block";
+    
+
 }
 
 function createScoreListitem(){
     var storedArray = JSON.parse(localStorage.getItem("array"));
     console.log(storedArray);
+    removeChildren(highscoresList);
     for(i = 0; i < storedArray.length; i++){
         var li = document.createElement("li");
         li.innerHTML =  storedArray[i].name + " : " + storedArray[i].score;
@@ -232,9 +235,9 @@ function createScoreListitem(){
 function goToHighSores(e){
     e.preventDefault();
     scoreInfo.style.display = "none";
-    highscoresSection.style.display = "block";
     introBlock.style.display = "none";
     questionSection.style.display = "none"; 
+    highscoresSection.style.display = "block";
     
 }
 
