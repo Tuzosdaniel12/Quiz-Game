@@ -55,7 +55,7 @@ section #correctOrWrongAnswer{
     display: none;
 }
 
-section button{
+section button {
     margin: auto;
     background-color: var(--mainColor);
     width: fit-content;
@@ -63,6 +63,9 @@ section button{
     justify-self: center;
     font-size: 1.5em;
     opacity: .8;
+}
+section button #start-game{
+    margin: auto;
 }
 section button:hover{
     opacity: 1;

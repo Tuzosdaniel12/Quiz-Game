@@ -9,16 +9,17 @@ var scoreInfo = document.getElementById("scoreInfo");
 var intialButton = document.querySelector("#intialsButton");
 var intialsEl = document.querySelector("#intials");
 var totalScore = document.querySelector("#score");
-var highscoresSection = document.querySelector("#highscoresSection");
-var highscoresList = document.querySelector("#highscores");
+var highscoresSection = document.getElementById("highscoresSection");
+var highscoresList = document.getElementById("highscores");
 var goBackButton = document.querySelector("#goBack");
 var clearButton = document.getElementById("clear");
+var highscoreLink = document.getElementById("highscoreshtml");
 
+var playerList = [];
 var interval;
 var score;
 var totalSeconds = 120;
 var currentQuestion = 0;
-var peopleHighScore = [{int:""},{s:0}];
 var questions = [
         questionOne = {
             q : "Whats the most common way to create a variable?",
@@ -101,7 +102,7 @@ function Timer(){
     totalSeconds--;
     var totalMinutes = Math.floor(totalSeconds/ 60);
     minutesLeft = totalMinutes;
-    console.log(totalMinutes);
+    //console.log(totalMinutes);
     var secondsPerMinute = totalSeconds % 60;
     displayTime(totalMinutes, secondsPerMinute);
    // console.log(totalMinutes);
@@ -167,7 +168,7 @@ function checkAnswer(index){
     else{
         correctOrWrongAnswer.textContent = "Wrong";
         totalSeconds = totalSeconds - 20;
-        console.log(totalSeconds);
+        //console.log(totalSeconds);
         if (totalSeconds <= 0){
             finalScore();
         }
@@ -186,8 +187,7 @@ function removeChildren(parent){
 
 //clears interval and send to all done block
 function finalScore(){
-    totalSeconds = 120;
-    clearInterval(interval);
+    playAgainClearTime();
     totalScore.textContent = "Your Score: " + score;
     questionSection.style.display = "none";
     scoreInfo.style.display = "block";
@@ -196,8 +196,9 @@ function finalScore(){
 function submitScore(e){
     e.preventDefault();
     var intials = intialsEl.value;
-    localStorage.setItem("intials", intials);
-    localStorage.setItem("score", score);
+    playerList.push({name : intials, score: score});
+    localStorage.setItem("array", JSON.stringify(playerList));
+    //console.log(playerList);
     createScoreListitem();
     scoreInfo.style.display = "none";
     highscoresSection.style.display = "block";
@@ -206,27 +207,46 @@ function submitScore(e){
 function clear(e){
     e.preventDefault();
     removeChildren(highscoresList);
+    playerList = [];
 }
 function goBack(e){
-    e.preventDefault
-    location.href = "index.html";
+    e.preventDefault();
+    playAgainClearTime();
+    removeChildren(answers);
+    scoreInfo.style.display = "none";
+    highscoresSection.style.display = "none";
+    introBlock.style.display = "block";
+    questionSection.style.display = "none"; 
 }
 
 function createScoreListitem(){
-    intials = localStorage.getItem("intials");
-    score = localStorage.getItem("score");
-    
-    for(var i = -1; i < peopleHighScore.length; i++){
-    var li = document.createElement("li");
-    peopleHighScore.push({int: intials, s: score});
-    li.innerHTML =  peopleHighScore[i].int + " : " + peopleHighScore[i].s;   
-    highscoresList.append(li);
-}
+    var storedArray = JSON.parse(localStorage.getItem("array"));
+    console.log(storedArray);
+    for(i = 0; i < storedArray.length; i++){
+        var li = document.createElement("li");
+        li.innerHTML =  storedArray[i].name + " : " + storedArray[i].score;
+        highscoresList.append(li);
+    }
 }
 
+function goToHighSores(e){
+    e.preventDefault();
+    scoreInfo.style.display = "none";
+    highscoresSection.style.display = "block";
+    introBlock.style.display = "none";
+    questionSection.style.display = "none"; 
+    
+}
+
+function playAgainClearTime(){
+    currentQuestion = 0;
+    totalSeconds = 120;
+    clearInterval(interval);
+}
 //event LIStener 
 buttonStart.addEventListener("click",startGame);
 answers.addEventListener("click", answersButtons);
 intialButton.addEventListener("click", submitScore);
 clearButton.addEventListener("click", clear);
 goBackButton.addEventListener("click",goBack);
+highscoreLink.addEventListener("click", goToHighSores)
