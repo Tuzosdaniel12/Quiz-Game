@@ -151,17 +151,19 @@ function answersButtons(e){
         removeChildren(answers);
         currentQuestion++;
         displayQuestion();
+        
     }
 }
 
 //check answer to check right answer al;so displayus if correct
 function checkAnswer(index){
     if(index === questions[currentQuestion].rightAnswer){
-        correctOrWrongEl.style.display = "block";
+        correctOrWrongEl.style.opacity = 1;
         correctOrWrongAnswer.textContent = "Corret";
         score++; 
     }
     else{
+        correctOrWrongEl.style.opacity = 1;
         correctOrWrongAnswer.textContent = "Wrong";
         totalSeconds = totalSeconds - 20;
         //console.log(totalSeconds);
@@ -170,6 +172,8 @@ function checkAnswer(index){
         }
     } 
     //console.log(score);
+  
+    window.setTimeout("correctOrWrongEl.style.opacity = 0;", 500);
 }
 
 //removes children from parent element 
@@ -187,12 +191,15 @@ function finalScore(){
     scoreInfo.style.display = "block";
 }
 
+///clears interval and sets everything to starting mode
 function playAgainClearTime(){
     currentQuestion = 0;
     totalSeconds = 120;
     clearInterval(interval);
 }
 
+//click and submit event, will change to highscore Html
+//get and sets player info so it can be used as highscores list
 function submitScore(e){
     e.preventDefault();
     location.href = "highscores.html";

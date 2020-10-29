@@ -56,6 +56,19 @@ body{
     color: black;
     font-weight: bold;
 }
+#question-block p{
+    width:90%;
+    border-top: lightgray;
+    border-top: solid;
+    font-size: 1em;
+    margin-bottom: .5em;
+    color: gray;
+    font-weight: bold;
+    opacity: 0;
+    transition: 1s;
+
+}
+
 #question-block button{
     background-color: var(--mainColor);
     border-radius: 1em;
@@ -113,6 +126,9 @@ body{
 #high-scores-section ul li{
     font-size: 1.5em;
     margin-bottom: .5em;
+    background-color: lightgray;
+    border: solid;
+    border-color: grey;
 }
 #high-scores-section button {
     background-color: var(--mainColor);
@@ -120,6 +136,7 @@ body{
     padding: .5em;
     font-size: 1em;
     font-weight: bold;
+    
 }
 
 button{
@@ -129,4 +146,25 @@ button:hover{
     opacity: 1;
 }
 
+@media screen and (max-width: 800px) {
+    body {
+      font-size: 12px;
+    }
+  }
 
+  @media screen and (max-width: 630px) {
+    body {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 532px) {
+    body {
+      font-size: 9px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    body {
+      font-size: 7px;
+    }
+  }
