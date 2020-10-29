@@ -152,15 +152,15 @@ function submitScore(e){
     var intials = intialsEl.value;
     var playerList = [];
     //console.log(JSON.parse(localStorage.getItem("array")));
-    if(JSON.parse(window.localStorage.getItem("array")) === undefined){
+    if(JSON.parse(localStorage.getItem("array")) === undefined){
         playerList =[{name : intials, score: score, time: timeLeft.textContent }];
     }
     else{
-        playerList = JSON.parse(window.localStorage.getItem("array"));
+        playerList = JSON.parse(localStorage.getItem("array"));
     }
 
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
-    window.localStorage.setItem("array", JSON.stringify(playerList));
+    localStorage.setItem("array", JSON.stringify(playerList));
     //console.log(playerList);
 }
 
