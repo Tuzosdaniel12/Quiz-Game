@@ -147,7 +147,6 @@ function playAgainClearTime(){
 //get and sets player info so it can be used as highscores list
 function submitScore(e){
     e.preventDefault();
-    window.location.href = "highscores.html";
     scoreInfo.style.display = "none";
     var intials = intialsEl.value;
     var playerList = [];
@@ -162,6 +161,7 @@ function submitScore(e){
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
     localStorage.setItem("array", JSON.stringify(playerList));
     //console.log(playerList);
+    window.location.href = "highscores.html";
 }
 
 buttonStart.addEventListener("click",startGame);
