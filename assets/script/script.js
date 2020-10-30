@@ -11,6 +11,9 @@ var scoreInfo = document.getElementById("scoreInfo");
 var submitBtn = document.getElementById("intials-button");
 var intialsEl = document.getElementById("intials");
 var totalScore = document.getElementById("score");
+var wrongSound = new Audio("https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg");
+var correctSound = new Audio("https://actions.google.com/sounds/v1/cartoon/cartoon_cowbell.ogg");
+var audioGame = new Audio("https://actions.google.com/sounds/v1/office/keyboard_typing_fast_far.ogg");
 
 
 var interval;
@@ -25,6 +28,8 @@ var currentQuestion = 0;
 //this event has to fire the time interverval and send me to the question
 // THEN a timer starts and I am presented with a question(go to display quiestion)
 function startGame(e){
+    audioGame.play();
+    audioGame.loop = true;
     score = 0;
     e.preventDefault();
     clearInterval(interval);
@@ -36,6 +41,7 @@ function startGame(e){
 
 //sets time and calls display time to display time
 function Timer(){ 
+    
     //check every time to see if time has ran out
     if (totalSeconds <= 0){
         finalScore();
@@ -105,11 +111,14 @@ function checkAnswer(index){
     if(index === questions[currentQuestion].rightAnswer){
         correctOrWrongEl.style.opacity = 1;
         correctOrWrongAnswer.textContent = "Corret";
+        correctSound.play();
         score++; 
     }
     else{
         correctOrWrongEl.style.opacity = 1;
         correctOrWrongAnswer.textContent = "Wrong";
+        wrongSound.play(); 
+
         totalSeconds = totalSeconds - 20;
         //console.log(totalSeconds);
         if (totalSeconds <= 0){
