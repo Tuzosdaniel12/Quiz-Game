@@ -82,7 +82,6 @@ body{
     display: none;
     width: 50%;
     margin: auto;
-    
 }
 #scoreInfo h1{
     font-size: 2em;
@@ -130,13 +129,16 @@ body{
     border: solid;
     border-color: grey;
 }
+#high-scores-section ul li span{
+    font-weight: bold;
+    margin-right: 1em;
+}
 #high-scores-section button {
     background-color: var(--mainColor);
     border-radius: 1em;
     padding: .5em;
     font-size: 1em;
-    font-weight: bold;
-    
+    font-weight: bold; 
 }
 
 button{
@@ -150,13 +152,25 @@ button:hover{
     body {
       font-size: 12px;
     }
+    #intro-block{
+        width: 80%;
+    }
+    #high-scores-section{
+    width: 80%;
+    }
+
+    #scoreInfo{
+        width: 80%;
+    }
   }
 
   @media screen and (max-width: 630px) {
     body {
       font-size: 10px;
     }
+   
   }
+
   @media screen and (max-width: 532px) {
     body {
       font-size: 9px;

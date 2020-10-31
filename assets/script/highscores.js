@@ -8,7 +8,7 @@ function createScoreListitem(){
     //removeChildren(highscoresList);
     for(i = 0; i < storedArray.length; i++){
         var li = document.createElement("li");
-        li.innerHTML =  "Initials: "+ storedArray[i].name + "  Score: " + storedArray[i].score + " Time: " + storedArray[i].time;
+        li.innerHTML =  "<span>Initials:</span> "+ storedArray[i].name + "  <span>Score:</span>" + storedArray[i].score + " <span>Time:</span>" + storedArray[i].time;
         listHighscores.append(li);
     }
 }
