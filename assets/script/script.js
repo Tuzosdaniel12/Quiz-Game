@@ -14,7 +14,8 @@ var totalScore = document.getElementById("score");
 var wrongSound = new Audio("https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg");
 var correctSound = new Audio("https://actions.google.com/sounds/v1/cartoon/cartoon_cowbell.ogg");
 var audioGame = new Audio("https://actions.google.com/sounds/v1/office/keyboard_typing_fast_far.ogg");
-
+wrongSound.playbackRate = 3.0;
+correctSound.playbackRate = 3.0;
 
 var interval;
 var score;
@@ -25,8 +26,9 @@ var currentQuestion = 0;
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
 
-//this event has to fire the time interverval and send me to the question
+//this event fires the time interverval and send me to the displayquestion Function
 // THEN a timer starts and I am presented with a question(go to display quiestion)
+//hides intro block and displays qhestion block
 function startGame(e){
     audioGame.play();
     audioGame.loop = true;
@@ -41,19 +43,17 @@ function startGame(e){
 
 //sets time and calls display time to display time
 function Timer(){ 
-    
     //check every time to see if time has ran out
     if (totalSeconds <= 0){
         finalScore();
     }
     totalSeconds--;
     var totalMinutes = Math.floor(totalSeconds/ 60);
-    minutesLeft = totalMinutes;
+    //minutesLeft = totalMinutes;
     //console.log(totalMinutes);
     var secondsPerMinute = totalSeconds % 60;
     displayTime(totalMinutes, secondsPerMinute);
    // console.log(totalMinutes);
-
 }
 
 //formats time as displays time
@@ -62,20 +62,18 @@ function displayTime(totalMinutes, secondsPerMinute){
     if(totalMinutes == 2){
         totalMinutes = 1;
     }
-
     if(secondsPerMinute < 10){
         timeLeft.textContent = totalMinutes + ":" + "0" + secondsPerMinute;
     }
     else{
         timeLeft.textContent = totalMinutes + ":" + secondsPerMinute;
     }
-    secondsLeft = secondsPerMinute; 
+    //secondsLeft = secondsPerMinute; 
 }
 
 
 //creates four children for each answer in every question and display the questions
-function displayQuestion(){
-    
+function displayQuestion(){    
     questionEl.textContent = questions[currentQuestion].q;
     for(i =0; i < questions[currentQuestion].a.length; i++){
         var li = document.createElement("li")
@@ -83,8 +81,7 @@ function displayQuestion(){
         li.dataIndex = i;
         console.log(li.dataIndex );
         answers.append(li);
-    }
-     
+    }   
 }
 
 //when you click each button is going to call check answer function to check answers
@@ -101,8 +98,7 @@ function answersButtons(e){
         checkAnswer(index);
         removeChildren(answers);
         currentQuestion++;
-        displayQuestion();
-        
+        displayQuestion();        
     }
 }
 
@@ -137,7 +133,7 @@ function removeChildren(parent){
     }
 }
 
-//clears interval and send to all done block
+//clears interval and send to allDoneBlock
 function finalScore(){
     playAgainClearTime();
     totalScore.textContent = "Your Score: " + score;
@@ -166,7 +162,6 @@ function submitScore(e){
     else{
         playerList = JSON.parse(localStorage.getItem("array"));
     }
-
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
     localStorage.setItem("array", JSON.stringify(playerList));
     //console.log(playerList);
