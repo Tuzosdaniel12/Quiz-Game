@@ -3,7 +3,8 @@ var clearButton = document.getElementById("clear");
 var listHighscores = document.getElementById("player-list");
 
 function createScoreListitem(){
-    var storedArray = JSON.parse(localStorage.getItem("array"));
+    var storedArray = JSON.parse(localStorage.getItem("playerListHighScores"));
+    console.log(storedArray);
     //console.log(storedArray);
     //removeChildren(highscoresList);
     for(i = 0; i < storedArray.length; i++){
@@ -15,7 +16,7 @@ function createScoreListitem(){
 
 function clearFunction(e){
     e.preventDefault();
-    localStorage.setItem("array", "[]");
+    localStorage.setItem("playerListHighScores", "[]");
     //console.log(playerList = JSON.parse(localStorage.getItem("array", "[]")));
     removeChildren(listHighscores);
 }

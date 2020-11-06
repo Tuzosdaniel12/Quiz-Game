@@ -79,7 +79,7 @@ function displayQuestion(){
         var li = document.createElement("li")
         li.innerHTML = "<button>" + questions[currentQuestion].a[i] +"</button>";
         li.dataIndex = i;
-        console.log(li.dataIndex );
+        //console.log(li.dataIndex );
         answers.append(li);
     }   
 }
@@ -156,14 +156,13 @@ function submitScore(e){
     var intials = intialsEl.value;
     var playerList = [];
     //console.log(JSON.parse(localStorage.getItem("array")));
-    if(JSON.parse(localStorage.getItem("array")) === undefined){
-        playerList =[{name : intials, score: score, time: timeLeft.textContent }];
-    }
-    else{
-        playerList = JSON.parse(localStorage.getItem("array"));
+    if(localStorage.getItem("playerListHighScores") !== null){
+        playerList = JSON.parse(localStorage.getItem("playerListHighScores"));
+        console.log(playerList);
     }
     playerList.push({name : intials, score: score, time: timeLeft.textContent});
-    localStorage.setItem("array", JSON.stringify(playerList));
+    console.log(playerList);
+    localStorage.setItem("playerListHighScores", JSON.stringify(playerList));
     //console.log(playerList);
     window.location.href = "highscores.html";
 }
