@@ -60,4 +60,4 @@ THEN I can save my initials and score
 ## Links
 https://github.com/Tuzosdaniel12/Quiz-Game
 
-https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/
+https://tuzosdaniel12.github.io/Quiz-Game/
