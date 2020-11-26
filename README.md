@@ -58,6 +58,6 @@ THEN I can save my initials and score
 ![CODE](https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/assets/images/code-08.png)
 
 ## Links
-https://tuzosdaniel12.github.io/Quiz-Game/
+https://github.com/Tuzosdaniel12/Quiz-Game
 
-https://github.com/Tuzosdaniel12/Quiz-Game/blob/main/
+https://tuzosdaniel12.github.io/Quiz-Game/
