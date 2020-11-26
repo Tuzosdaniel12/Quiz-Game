@@ -35,14 +35,14 @@ function startGame(e){
     score = 0;
     e.preventDefault();
     clearInterval(interval);
-    interval = setInterval(Timer, 1000);
+    interval = setInterval(timer, 1000);
     introBlock.style.display = "none";
     questionSection.style.display = "block"; 
     displayQuestion(); 
 }
 
 //sets time and calls display time to display time
-function Timer(){ 
+function timer(){ 
     //check every time to see if time has ran out
     if (totalSeconds <= 0){
         finalScore();
